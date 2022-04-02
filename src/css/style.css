@@ -158,6 +158,8 @@ main {
   }
   .faq__img-pattern-desktop {
     position: absolute;
+    width: 60.375em;
+    height: 59.0625em;
     left: 0;
     bottom: 0;
     -webkit-transform: translateX(-60%) translateY(8.8125em);
