@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+$font-family-kumbh-sans: 'Kumbh Sans', sans-serif;
+
+// Gradient
+$color-soft-violet: hsl(273, 75%, 66%);
+$color-soft-blue: hsl(240, 73%, 65%);
+$color-gradient: linear-gradient(to top, $color-soft-blue, $color-soft-violet);
+
+// Text
+$color-darker-gray: #1e1f36;
+$color-very-dark-grayish-blue: hsl(237, 12%, 33%);
+$color-dark-grayish-blue: hsl(240, 6%, 50%);
+
+// Dividers
+$color-light-grayish-blue: hsl(240, 5%, 91%);
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: $color-gradient;
+  display: grid;
+  font-family: $font-family-kumbh-sans;
+  min-height: 100vh;
+  place-items: center;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+main {
+  width: 100%;
+}
+
+.faq {
+  position: relative;
+  border-radius: 23px;
+  background-color: #fff;
+  min-height: 33.4375em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  &__img-box-desktop {
+    display: none;
+  }
+  &__head-mobile {
+    height: 8.25em;
+  }
+  &__head-desktop {
+    display: none;
+  }
+  &__img-woman-mobile {
+    width: 14.8em;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-6.724375em);
+  }
+  &__img-pattern-mobile {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &__header {
+    color: $color-darker-gray;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0px;
+    text-align: center;
+  }
+  &__accordion {
+    margin-top: 2.375em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  &__accordion-item {
+    padding-bottom: 1.0625em;
+    border-bottom: 1px solid $color-light-grayish-blue;
+    transition: all 200ms ease;
+  }
+  &__accordion-question {
+    color: $color-very-dark-grayish-blue;
+    text-decoration: none;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: 0px;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: all;
+  }
+  &__accordion-arrow {
+    will-change: transform;
+  }
+  &__accordion-answer {
+    z-index: -1;
+    display: none;
+    margin-top: 0.75em;
+    color: $color-dark-grayish-blue;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0px;
+    line-height: 1.125rem;
+  }
+  &__accordion-item:target {
+    .faq__accordion-arrow {
+      transform: rotate(180deg);
+    }
+    .faq__accordion-question {
+      font-weight: 700;
+    }
+    .faq__accordion-answer {
+      display: block;
+      animation: 500ms answerDown ease;
+    }
+  }
+}
+
+@media screen and (min-width: 60.5em) {
+  main {
+    display: grid;
+    place-content: center;
+  }
+  .faq {
+    min-height: 31.8125em;
+    width: 57.5em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0;
+    &__img-box-desktop {
+      z-index: 1000;
+      display: block;
+      position: absolute;
+      left: 0;
+      top: calc(50% + 2em);
+      transform: translateX(-50%) translateY(-50%);
+    }
+    &__head-mobile {
+      display: none;
+    }
+    &__head-desktop {
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+    &__img-woman-desktop {
+      position: absolute;
+      width: 29.5em;
+      height: 22.4375em;
+      left: 0;
+      top: 50%;
+      transform: translateX(-17.8%) translateY(calc(-50% - 0.625em));
+    }
+    &__img-pattern-desktop {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transform: translateX(-60%) translateY(8.8125em);
+    }
+    &__body {
+      margin-top: 4.0625em;
+      padding-right: 5.9375em;
+    }
+    &__header {
+      text-align: left;
+    }
+    &__accordion {
+      margin-top: 2.6875em;
+    }
+    &__accordion-question {
+      font-size: 0.875rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1450px) {
+  html {
+    font-size: clamp(1rem, 1rem + 0.25vw, 1.25rem);
+  }
+}
+
+@keyframes answerDown {
+  0% {
+    display: block;
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
