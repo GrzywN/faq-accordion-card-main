@@ -11,6 +11,7 @@ $color-gradient: linear-gradient(to top, $color-soft-blue, $color-soft-violet);
 $color-darker-gray: #1e1f36;
 $color-very-dark-grayish-blue: hsl(237, 12%, 33%);
 $color-dark-grayish-blue: hsl(240, 6%, 50%);
+$color-soft-red: hsl(14, 88%, 65%);
 
 // Dividers
 $color-light-grayish-blue: hsl(240, 5%, 91%);
@@ -90,7 +91,10 @@ main {
     letter-spacing: 0px;
     display: flex;
     justify-content: space-between;
-    pointer-events: all;
+    transition: color 200ms ease;
+    &:hover {
+      color: $color-soft-red;
+    }
   }
   &__accordion-arrow {
     will-change: transform;

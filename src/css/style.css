@@ -89,7 +89,11 @@ main {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  pointer-events: all;
+  -webkit-transition: color 200ms ease;
+  transition: color 200ms ease;
+}
+.faq__accordion-question:hover {
+  color: hsl(14deg, 88%, 65%);
 }
 .faq__accordion-arrow {
   will-change: transform;
